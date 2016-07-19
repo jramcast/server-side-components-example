@@ -1,0 +1,13 @@
+doctype
+html
+  head
+    link(href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css')
+    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7' crossorigin='anonymous' )
+    if env == 'dev'
+        link(href='http://localhost:8080/home.css' rel='stylesheet')
+    else
+        link(href='home.css' rel='stylesheet')
+    title React Server Side Rendering Example
+  body
+    div!= markup
+    script(src='http://localhost:8080/home.js')
