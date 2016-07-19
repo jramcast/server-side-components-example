@@ -73,6 +73,13 @@ const webpackConfig = {
   // Module loeaders
   module: {
     loaders: [
+      // Compile to ES5
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel'
+      },
+
       // Extract css files
       {
         test: /\.css$/,
@@ -86,11 +93,23 @@ const webpackConfig = {
       },
 
       {
-        test: /\.(jpe?g|png|gif|svg)$/i,
+        test: /\.(jpe?g|png|gif)$/i,
         loaders: [
           'file?hash=sha512&digest=hex&name=[hash].[ext]',
           'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
         ]
+      },
+      // Fonts: the url-loader uses DataUrls.
+      
+      { 
+        test: /\.woff(2)?(.*)$/, 
+        loader: "url-loader?limit=10000&mimetype=application/font-woff" 
+      },
+
+      // Fpnts: the file-loader emits files.
+      { 
+        test: /\.(ttf|eot|svg)(.*)$/, 
+        loader: "file-loader" 
       }
     ]
   },
