@@ -9,8 +9,8 @@ app.set('view engine', 'jade');
 
 app.locals.env = app.settings.env;
 
+app.use('/', express.static('public'));
+
 app.get('/', (req, res) => res.render('index', { markup: home() } ) );
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
-});
+app.listen(3000, () => console.log('Example app listening on port 3000!') );

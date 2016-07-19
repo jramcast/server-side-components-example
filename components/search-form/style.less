@@ -1,0 +1,240 @@
+.motor {
+
+    @media (max-height: 700px) {
+        position: absolute;
+        width: 960px;
+        top: 140px;
+    }
+
+    .box_inside {
+
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        padding: 0;
+        width: 100%;
+        background-color: #fff;
+
+        .consulta {
+            display: inline-block;
+            float: right;
+            padding-right: 0;
+            width: 42%;
+            border-left: 1px solid rgba(0,0,0,.1);
+
+            .box-promo {
+                display: inline-block;
+                height: 62px;
+                position: relative;
+                width: 45%;
+                float: left;
+                padding: 20px 10px;
+
+                .promocode {
+                    display: inline-block;
+                    height: 20px;
+                    letter-spacing: 0;
+                    margin-top: 0;
+                    text-align: center;
+                    width: 100%;
+                    font-weight: 400;
+                    font-size: 14px;
+                    padding-top: 13px;
+                    color: rgba(0,0,0,.3);
+                }
+            }
+
+            .box-check {
+                width: 55%;
+                float: right;
+
+                .btn-consulta {
+                    border: 0;
+                    color: #fff;
+                    font-size: 18px;
+                    font-weight: 900;
+                    min-height: 54px;
+                    margin-top: 0;
+                    padding: 30px;
+                    width: 100.2%;
+                    border-radius: 0;
+                    letter-spacing: 0;
+                    white-space: pre-wrap;
+                    text-align: left;
+                    -webkit-transition: all .3s ease-in-out;
+                    transition: all .3s ease-in-out;
+                    background: #ca212d;
+                }
+            }
+        }
+
+        .select_hotel {
+            width: 30%;
+            display: inline-block;
+            float: left;
+            position: relative;
+
+            .destino {
+                display: block;
+                height: 61px;
+                padding: 25px 0 0;
+                width: 100%;
+                position: relative;
+                text-align: center;
+                margin: 0 auto;
+                color: rgba(0,0,0,.6);
+                cursor: pointer;
+
+                #id_destino {
+                    border-radius: 0;
+                    border: 0;
+                    box-shadow: none;
+                    cursor: pointer;
+                    display: inline-block;
+                    font-weight: 400;
+                    height: 80px;
+                    margin: -15px 0 0;
+                    padding: 0 13px 0 10px;
+                    text-align: center;
+                    width: 100%;
+                    font-family: Karla,sans-serif;
+                    z-index: 999!important;
+                    position: relative;
+                    background-color: transparent;
+                    background-image: none;
+                    color: rgba(0,0,0,.6);
+                    font-size: 12px!important;
+                }
+
+                em {
+                    display: block;
+                    text-align: center;
+                    font-size: 25px;
+                    position: absolute;
+                    left: auto;
+                    right: auto;
+                    margin: -30px auto 0;
+                    width: 100%;
+                    color: rgba(0,0,0,.3);
+                    -webkit-transition: all .3s ease-in-out;
+                    transition: all .3s ease-in-out;
+                }
+
+                ::-webkit-input-placeholder,
+                [placeholder], 
+                input[placeholder] {
+                    color: #3e3e3e!important;
+                    font-size: 15px!important;
+                }
+
+            }
+        }
+
+        .fechas {
+            display: inline-block;
+            float: left;
+            padding: 15px 0;
+            height: 110px;
+            width: 27%;
+            border-left: 1px solid rgba(0,0,0,.1);
+
+            .entrada, .salida {
+                display: inline-block;
+                float: left;
+                height: 40px;
+                margin: 0;
+                padding: 0 8px 0 0;
+                width: 125px;
+                cursor: pointer;
+            }
+
+            .entrada .bordeFechas, 
+            .salida .bordeFechas {
+                position: relative;
+                display: inline-block;
+                width: 100%;
+            }
+
+            .entrada .bordeFechas span,
+            .salida .bordeFechas span {
+                border-radius: 3px;
+                float: left;
+                font-size: 10px;
+                height: 63px;
+                margin: 0;
+                padding: 2px 5px 0;
+                text-align: center;
+                width: 135px;
+                color: #3e3e3e;
+            }
+
+            .entrada .bordeFechas span strong, 
+            .salida .bordeFechas span strong {
+                font-size: 35px;
+                font-style: normal!important;
+                padding-left: 5px;
+                padding-right: 3px;
+                font-weight: 900;
+                -webkit-font-smoothing: antialiased;
+                -webkit-transition: all .3s ease-in-out;
+                transition: all .3s ease-in-out;
+                color: #3e3e3e;
+            }
+
+            .entrada input, 
+            .salida input {
+                font-size: 10px;
+                left: 0;
+                padding: 4px;
+                position: absolute;
+                bottom: 0;
+                visibility: hidden;
+                width: 100%;
+                background-color: #fff;
+                color: #3e3e3e;
+            }
+
+            .entrada .bordeFechas span em, 
+            .salida .bordeFechas span em {
+                display: block;
+                font-size: 14px;
+                font-style: normal!important;
+                font-weight: 400;
+                position: relative;
+                top: 4px;
+                color: rgba(0,0,0,.6);
+            }
+
+            .entrada .bordeFechas:after {
+                font-family: FontAwesome;
+                content: "\f105";
+                display: inline-block;
+                color: rgba(0,0,0,.3);
+                font-size: 25px;
+                float: right;
+                top: -30px;
+                left: 15px;
+                position: relative;
+            }
+        }
+    }
+
+    .listDowHotels {
+        border-radius: 0;
+        box-shadow: 1px 1px 2px #666;
+        margin: 0;
+        position: absolute;
+        text-align: left;
+        width: 100%;
+        display: none;
+        z-index: 1;
+        padding: 20px 20px 15px;
+        bottom: auto!important;
+    }
+
+    .listDowHotels {
+        background: #fff;
+    }
+
+}
+

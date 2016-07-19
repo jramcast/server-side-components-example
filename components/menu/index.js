@@ -44,10 +44,10 @@ module.exports = (props = {}) => {
     return `<nav class="menu menu--prospero">
             <ul class="menu__list">
                 <li class="menu__item menu__item--current"><a href="#" class="menu__link">Home</a></li>
-                <li class="menu__item"><a href="#" class="menu__link">Gallery</a></li>
-                <li class="menu__item"><a href="#" class="menu__link">Portfolio</a></li>
-                <li class="menu__item"><a href="#" class="menu__link">Clients</a></li>
-                <li class="menu__item"><a href="#" class="menu__link">Contact</a></li>
+                <li class="menu__item"><a href="#" class="menu__link">Nuestros hoteles</a></li>
+                <li class="menu__item"><a href="#" class="menu__link">Promociones</a></li>
+                <li class="menu__item"><a href="#" class="menu__link">Convenciones</a></li>
+                <li class="menu__item"><a href="#" class="menu__link">Restaurantes</a></li>
                 <li class="menu__line"></li>
             </ul>
         </nav>`;
