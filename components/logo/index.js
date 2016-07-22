@@ -1,10 +1,23 @@
 if (process.env.BROWSER) require('./style.less');
 
+
 module.exports = (props = {}) => {
-    return `<div class="mesh__logo">
-        <a href="http://www.hotelestequendama.com/" title="Hoteles Tequendama">
-            <img src="http://www.hotelestequendama.com/static/corporativa/images/logo.svg" 
-                alt="Hoteles Tequendama" title="Hoteles Tequendama" height="63" width="131">
-        </a>
-    </div>`
+
+    return `
+        <style>${props.style}</style>
+        <div class="mesh__logo">
+            ${ (props.link) ? renderImageWithLink() : renderImage() }
+        </div>`
+
+    function renderImageWithLink() {
+        return `<a href="${props.link}" title="Hoteles Tequendama">
+            ${renderImage()}
+        </a>`
+    }
+
+    function renderImage() {
+        return `<img src="${props.url}"
+                alt="Hoteles Tequendama" title="Hoteles Tequendama" height="${props.height}" width="${props.width}">`
+    }
+
 }

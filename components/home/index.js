@@ -1,16 +1,19 @@
-const header = require('../header');
-const showcase = require('../showcase');
-const homeInfo = require('../home-info');
-const footer = require('../footer');
+const Mesh = require('../../lib/mesh-component');
+
 
 if (process.env.BROWSER) require('./style.less');
 
+/**
+ * Home is simply a list of other components
+ */
 module.exports = (props = {}) => {
-    const {hello} = props;
-    return `
-        ${header()}
-        ${showcase()}
-        ${homeInfo()}
-        ${footer()}
-    `;
+
+    return props.children
+        .map( childSettings => renderComponent(childSettings.component, childSettings.props) )
+        .join();
 }
+
+
+Mesh({
+    draw: render
+})
