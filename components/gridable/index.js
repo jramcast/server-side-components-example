@@ -1,26 +1,33 @@
 const renderComponent = (name, props) => `<div class="${props._class}">${require('../' + props.children[0].component)(props.children[0].props)}</div>`;
+const mesh = require('../../lib/mesh-component');
 
-module.exports = {
+function GridableMixin () {
 
-    renderRows() {
-        return props.rows.map(renderRow).join();
+    return mesh({
+        renderRows,
+        renderRow
+    });
+
+    function renderRows(rows) {
+        return rows.map(renderRow).join('');
     }
 
-    renderRow(row) {
-        return `<div col="row">${renderColumns(row.children)}</div>`;
+    function renderRow(row) {
+        return `<div col="row">${renderColumns(row.cols)}</div>`;
     }
 
-    renderColumns(columns) {
-        return columns.map(renderColumn).join();
-        return `<div class="col-md-2">${logo()}</div>`
+    function renderColumns(columns) {
+        return columns.map(renderColumn).join('');
     }
 
-    renderColumn(column) {
-        return `<div class="${column._class}">${renderColumnChildren(column.props.children)}</div>`;
+    function renderColumn(column) {
+        return `<div class="${column.props._class}">${renderColumnChildren(column.props.children)}</div>`;
     }
 
-    renderColumnChildren(components = []) {
-        return components.map(comp => require('../' + comp.component)(comp.props));
+    function renderColumnChildren(components = []) {
+        return components.map(comp => comp.component(comp.props));
     }
 
 }
+
+module.exports = (target) => GridableMixin.call(target);

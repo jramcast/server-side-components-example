@@ -4,6 +4,7 @@ if (process.env.BROWSER) {
     const Clipboard = require('./clipboard.min');
     require('./style.css');
 
+    console.log('hola');
     (function() {
         [].slice.call(document.querySelectorAll('.menu')).forEach(function(menu) {
             var menuItems = menu.querySelectorAll('.menu__link'),
@@ -41,7 +42,9 @@ if (process.env.BROWSER) {
 
 
 module.exports = (props = {}) => {
-    return `<nav class="menu menu--prospero">
+    return `
+        <style>${props.style}</style>
+        <nav class="mesh__menu menu menu--${props.animation}">
             <ul class="menu__list">
                 <li class="menu__item menu__item--current"><a href="#" class="menu__link">Home</a></li>
                 <li class="menu__item"><a href="#" class="menu__link">Nuestros hoteles</a></li>

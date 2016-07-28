@@ -6,14 +6,7 @@ if (process.env.BROWSER) require('./style.less');
 /**
  * Home is simply a list of other components
  */
-module.exports = (props = {}) => {
 
-    return props.children
-        .map( childSettings => renderComponent(childSettings.component, childSettings.props) )
-        .join();
-}
+const home = Mesh({});
 
-
-Mesh({
-    draw: render
-})
+module.exports = (props) => home.renderChildren(props.children);

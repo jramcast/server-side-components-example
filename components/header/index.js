@@ -2,30 +2,28 @@ const logo =  require('../logo');
 const menu =  require('../menu');
 const h1 =  require('../h1');
 const langSelector =  require('../lang-selector');
+const gridable = require('../gridable');
 
 if (process.env.BROWSER) require('./style.less');
 
-const renderComponent = (name, props) => `<div class="${props._class}">${require('../' + props.children[0].component)(props.children[0].props)}</div>`;
+const header = gridable();
 
-module.exports = (props = {}) => {
+module.exports = function (props) {
 
-    const cols =  props.children
-        .map( childProps => renderComponent(childProps.component, childProps.props) )
-        .join();
+    return `
+        <style>${props.style}</style>
+        <header class="mesh__header" style="position: relative">
+            ${renderBackgroundImage()}
+            ${header.renderRows(props.rows)}
+        </header> `;
 
-    return `<header class="mesh__header">
-        <div class="row">
-        ${cols}
-        </div>
-    </header> `;
+    function renderBackgroundImage() {
+        const {backgroundImg} = props;
+        if (backgroundImg) {
+            return `<img src="${backgroundImg}" style="opacity: 0.3; position:absolute; top: 0; bottom: 0; left: 0; right: 0">`;
+        }
+        return '';
+    }
 
-    /*return `<header
-      class="mesh__header">
-        <div col="row">
-            <div class="col-md-2">${logo()}</div>
-            <div class="col-md-6">${menu()}</div>
-            <div class="col-md-2">${h1()}</div>
-            <div class="col-md-2">${langSelector()}</div>
-        </div>
-    </header>`;*/
 }
+

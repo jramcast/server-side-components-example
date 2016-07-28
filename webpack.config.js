@@ -55,7 +55,7 @@ const webpackConfig = {
   // Webpack entry point scripts (those scripts explicitly included in the html):
   // Relative to context path
   entry: {
-    home: ['./components/home/index.js']
+    home: ['./data/config.js']
   },
 
   // Webpack output config
